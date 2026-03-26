@@ -1,1 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harsha Dana Consulting — Corporate Financial Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1F3A;
+    --navy-mid: #122847;
+    --navy-light: #1A3A5C;
+    --gold: #C9A84C;
+    --gold-light: #E2C47A;
+    --gold-pale: #F7EDD3;
+    --white: #FFFFFF;
+    --off-white: #F8F9FC;
+    --gray-light: #EEF1F6;
+    --gray: #8A98AC;
+    --text: #1C2B3A;
+  }
 
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 6vw;
+    height: 72px;
+    background: rgba(11,31,58,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-mark {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+  .nav-logo-text {
+    display: flex; flex-direction: column;
+  }
+  .nav-logo-text strong {
+    font-size: 14px; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--white); line-height: 1.2;
+  }
+  .nav-logo-text span {
+    font-size: 10px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 32px; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy) !important;
+    padding: 9px 22px !important;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-cta:hover { opacity: 0.88; }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    overflow: hidden;
+    padding-top: 72px;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-bg-glow {
+    position: absolute; top: -20%; right: -10%;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-bg-glow2 {
+    position: absolute; bottom: -20%; left: -5%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(26,58,92,0.6) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; padding: 80px 6vw;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    margin-bottom: 28px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold);
+  }
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3.5vw, 50px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 16px; line-height: 1.75;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .hero-actions {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-weight: 600; font-size: 14px; letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(201,168,76,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,168,76,0.45); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.75);
+    font-size: 14px; font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--gold); border-color: var(--gold); }
+  .hero-stats {
+    display: flex; gap: 36px; flex-wrap: wrap; margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 700;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-stat-label {
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45); font-weight: 500;
+  }
+  .hero-visual {
+    position: relative;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 32px;
+    backdrop-filter: blur(8px);
+  }
+  .hero-card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px;
+  }
+  .hero-card-title {
+    font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .hero-card-badge {
+    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold); font-size: 11px; padding: 3px 10px; border-radius: 100px;
+    font-weight: 600;
+  }
+  .cfd-steps {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .cfd-step {
+    display: flex; align-items: center; gap: 16px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .cfd-step:hover { background: rgba(255,255,255,0.04); }
+  .step-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; flex-shrink: 0;
+  }
+  .step-num.s1 { background: rgba(201,168,76,0.2); color: var(--gold); }
+  .step-num.s2 { background: rgba(74,144,226,0.2); color: #6AABF7; }
+  .step-num.s3 { background: rgba(80,200,120,0.2); color: #72E6A0; }
+  .step-num.s4 { background: rgba(201,168,76,0.1); color: var(--gold-light); }
+  .step-info strong {
+    display: block; font-size: 14px; color: var(--white); font-weight: 600; margin-bottom: 2px;
+  }
+  .step-info span { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .hero-card-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 24px 0; }
+  .hero-cert-row {
+    display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .cert-chip {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6); font-size: 11px; padding: 5px 12px; border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 96px 6vw; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .section-tag::before {
+    content: ''; display: block; width: 24px; height: 2px; background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700; line-height: 1.2;
+    color: var(--navy); margin-bottom: 20px;
+  }
+  .section-title.light { color: var(--white); }
+  .section-lead {
+    font-size: 17px; color: var(--gray); line-height: 1.75;
+    max-width: 640px; font-weight: 300;
+  }
+  .section-lead.light { color: rgba(255,255,255,0.6); }
+
+  /* ── PROBLEM ── */
+  #problem { background: var(--off-white); }
+  .problem-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center; margin-top: 60px;
+  }
+  .problem-text p {
+    font-size: 16px; color: #4A5568; line-height: 1.85; margin-bottom: 20px;
+    font-weight: 300;
+  }
+  .problem-cards { display: flex; flex-direction: column; gap: 16px; }
+  .prob-card {
+    display: flex; align-items: flex-start; gap: 16px;
+    background: var(--white);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  }
+  .prob-icon {
+    width: 40px; height: 40px; flex-shrink: 0; border-radius: 8px;
+    background: var(--gold-pale);
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .prob-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .prob-card p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  /* ── APPROACH ── */
+  #approach { background: var(--navy); }
+  .approach-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    margin-top: 60px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px; overflow: hidden;
+  }
+  .approach-step {
+    padding: 40px 32px;
+    background: rgba(255,255,255,0.02);
+    border-right: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    transition: background 0.3s;
+  }
+  .approach-step:last-child { border-right: none; }
+  .approach-step:hover { background: rgba(201,168,76,0.05); }
+  .step-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px; font-weight: 700;
+    color: rgba(201,168,76,0.15);
+    line-height: 1; margin-bottom: 16px;
+  }
+  .step-icon { font-size: 28px; margin-bottom: 16px; }
+  .approach-step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: var(--white); margin-bottom: 12px;
+  }
+  .approach-step p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+  .step-accent {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .approach-step:hover .step-accent { opacity: 1; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--off-white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 60px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 36px 32px;
+    border: 1px solid var(--gray-light);
+    position: relative; overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(11,31,58,0.1);
+    border-color: rgba(201,168,76,0.4);
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card.featured {
+    background: var(--navy); border-color: transparent;
+    grid-column: span 1;
+  }
+  .service-icon {
+    width: 52px; height: 52px;
+    background: var(--gold-pale);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 20px;
+  }
+  .service-card.featured .service-icon { background: rgba(201,168,76,0.15); }
+  .service-card h3 {
+    font-size: 17px; font-weight: 600; color: var(--navy);
+    margin-bottom: 12px; line-height: 1.35;
+  }
+  .service-card.featured h3 { color: var(--white); }
+  .service-card p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+  .service-card.featured p { color: rgba(255,255,255,0.55); }
+  .service-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 20px; font-size: 13px; font-weight: 600;
+    color: var(--gold); text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+  .service-link::after { content: '→'; transition: transform 0.2s; }
+  .service-card:hover .service-link::after { transform: translateX(4px); }
+
+  /* ── BENEFITS ── */
+  #benefits { background: var(--white); }
+  .benefits-layout {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center; margin-top: 60px;
+  }
+  .benefits-list { display: flex; flex-direction: column; gap: 20px; }
+  .benefit-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 20px;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .benefit-item:hover { background: var(--off-white); }
+  .benefit-check {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: var(--navy);
+  }
+  .benefit-item h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .benefit-item p { font-size: 13px; color: var(--gray); line-height: 1.65; }
+  .benefits-visual {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 48px 40px;
+    position: relative; overflow: hidden;
+  }
+  .benefits-visual::before {
+    content: '';
+    position: absolute; top: -30%; right: -20%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+  }
+  .bv-label {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 8px;
+  }
+  .bv-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; color: var(--white); font-weight: 700; margin-bottom: 32px;
+    line-height: 1.3;
+  }
+  .bv-metrics { display: flex; flex-direction: column; gap: 20px; }
+  .bv-metric-label {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+  }
+  .bv-metric-label span:first-child { font-size: 13px; color: rgba(255,255,255,0.7); }
+  .bv-metric-label span:last-child { font-size: 13px; font-weight: 700; color: var(--gold); }
+  .bv-bar-track {
+    height: 6px; background: rgba(255,255,255,0.08); border-radius: 100px; overflow: hidden;
+  }
+  .bv-bar-fill {
+    height: 100%; border-radius: 100px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    animation: barGrow 1.5s ease-out forwards;
+    transform-origin: left; transform: scaleX(0);
+  }
+  @keyframes barGrow { to { transform: scaleX(1); } }
+
+  /* ── FOUNDER ── */
+  #founder { background: var(--off-white); }
+  .founder-grid {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+    align-items: start; margin-top: 60px;
+  }
+  .founder-portrait {
+    background: var(--navy);
+    border-radius: 12px;
+    aspect-ratio: 3/4;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end;
+    padding: 32px;
+    position: relative; overflow: hidden;
+  }
+  .founder-portrait-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, rgba(201,168,76,0.15) 100%);
+  }
+  .founder-monogram {
+    position: relative; z-index: 2;
+    font-family: 'Playfair Display', serif;
+    font-size: 80px; font-weight: 700;
+    color: rgba(201,168,76,0.15); line-height: 1;
+    margin-bottom: 80px;
+    align-self: center;
+  }
+  .founder-name-tag {
+    position: relative; z-index: 2; text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px; width: 100%;
+  }
+  .founder-name-tag strong {
+    display: block; color: var(--white); font-size: 15px; font-weight: 600; margin-bottom: 4px;
+  }
+  .founder-name-tag span { font-size: 12px; color: var(--gold); }
+  .founder-info { padding-top: 8px; }
+  .founder-bio {
+    font-size: 16px; color: #4A5568; line-height: 1.85; margin-bottom: 36px; font-weight: 300;
+  }
+  .founder-stats {
+    display: flex; gap: 0;
+    border: 1px solid var(--gray-light);
+    border-radius: 10px; overflow: hidden;
+    margin-bottom: 36px;
+  }
+  .founder-stat {
+    flex: 1; padding: 24px 20px; text-align: center;
+    border-right: 1px solid var(--gray-light);
+    background: var(--white);
+  }
+  .founder-stat:last-child { border-right: none; }
+  .founder-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 6px;
+  }
+  .founder-stat-num span { font-size: 18px; }
+  .founder-stat-label { font-size: 11px; color: var(--gray); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500; }
+  .certs-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .cert-badge {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 6px;
+    padding: 10px 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .cert-badge:hover { border-color: var(--gold); box-shadow: 0 4px 16px rgba(201,168,76,0.1); }
+  .cert-badge .cert-icon {
+    width: 28px; height: 28px;
+    background: var(--gold-pale); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 13px;
+    flex-shrink: 0;
+  }
+  .cert-badge strong { font-size: 13px; font-weight: 700; color: var(--navy); }
+  .cert-badge span { font-size: 11px; color: var(--gray); display: block; }
+
+  /* ── CTA ── */
+  #cta {
+    background: var(--navy);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-bg-lines {
+    position: absolute; inset: 0; opacity: 0.03;
+    background-image: linear-gradient(rgba(201,168,76,1) 1px, transparent 1px);
+    background-size: 100% 48px;
+  }
+  #cta .section-inner { position: relative; z-index: 2; max-width: 720px; }
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 3vw, 46px);
+    font-weight: 700; color: var(--white);
+    line-height: 1.2; margin-bottom: 20px;
+  }
+  .cta-title em { color: var(--gold); font-style: italic; }
+  .cta-sub {
+    font-size: 16px; color: rgba(255,255,255,0.55);
+    line-height: 1.75; margin-bottom: 40px; font-weight: 300;
+  }
+  .cta-note {
+    margin-top: 24px; font-size: 13px; color: rgba(255,255,255,0.3);
+    font-weight: 300;
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--off-white); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: start; margin-top: 60px;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 20px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 24px;
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--gray-light);
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .contact-item:hover {
+    border-color: var(--gold);
+    box-shadow: 0 4px 20px rgba(201,168,76,0.1);
+    transform: translateX(4px);
+  }
+  .contact-icon {
+    width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0;
+    background: var(--gold-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .contact-item-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); margin-bottom: 3px; font-weight: 500; }
+  .contact-item-value { font-size: 15px; font-weight: 600; color: var(--navy); }
+  .contact-form {
+    background: var(--white); border-radius: 12px; padding: 40px;
+    border: 1px solid var(--gray-light);
+  }
+  .contact-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: var(--navy); margin-bottom: 24px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 16px; display: flex; flex-direction: column; }
+  .form-group label { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+  .form-group input, .form-group textarea, .form-group select {
+    padding: 12px 16px;
+    border: 1px solid var(--gray-light);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: var(--text);
+    background: var(--off-white);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+    background: var(--white);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    color: var(--white);
+    border: none; cursor: pointer;
+    padding: 14px; border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.04em;
+    transition: opacity 0.2s, transform 0.2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #07141F;
+    padding: 40px 6vw;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+  .footer-copy strong { color: rgba(255,255,255,0.6); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .fade-up {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+  .fade-up:nth-child(5) { transition-delay: 0.4s; }
+
+  /* ── DIVIDER ── */
+  .gold-divider {
+    width: 48px; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 100px; margin-bottom: 32px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { display: none; }
+    .problem-grid, .benefits-layout, .founder-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .approach-steps { grid-template-columns: 1fr 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .approach-steps { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; }
+    .founder-stats { flex-direction: column; }
+    .founder-stat { border-right: none; border-bottom: 1px solid var(--gray-light); }
+    .founder-stat:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-mark">H</div>
+    <div class="nav-logo-text">
+      <strong>Harsha Dana</strong>
+      <span>Consulting</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#problem">Overview</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#founder">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#cta" class="nav-cta">Book a Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-bg-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Corporate Financial Solutions &amp; Diagnostic Partner</div>
+      <h1 class="hero-headline">
+        Solving <em>Hidden Financial Problems</em> That Impact Your Business Performance
+      </h1>
+      <p class="hero-sub">
+        We help companies identify, analyze, and solve financial challenges through a structured Corporate Financial Diagnostic (CFD) approach — built for decision-makers who demand results.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book a Consultation &nbsp;→</a>
+        <a href="#approach" class="btn-secondary">Our Methodology</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">12+</div>
+          <div class="hero-stat-label">Years Banking<br>Experience</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">200+</div>
+          <div class="hero-stat-label">Financial Planning<br>Clients</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-label">Professional<br>Certifications</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <span class="hero-card-title">CFD Framework</span>
+          <span class="hero-card-badge">Proprietary</span>
+        </div>
+        <div class="cfd-steps">
+          <div class="cfd-step">
+            <div class="step-num s1">01</div>
+            <div class="step-info">
+              <strong>Diagnose</strong>
+              <span>Identify root financial problems</span>
+            </div>
+          </div>
+          <div class="cfd-step">
+            <div class="step-num s2">02</div>
+            <div class="step-info">
+              <strong>Analyze</strong>
+              <span>Understand behavior &amp; risk patterns</span>
+            </div>
+          </div>
+          <div class="cfd-step">
+            <div class="step-num s3">03</div>
+            <div class="step-info">
+              <strong>Solve</strong>
+              <span>Deliver strategic &amp; practical solutions</span>
+            </div>
+          </div>
+          <div class="cfd-step">
+            <div class="step-num s4">04</div>
+            <div class="step-info">
+              <strong>Assist</strong>
+              <span>Support implementation &amp; follow-through</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card-divider"></div>
+        <div class="hero-cert-row">
+          <span class="cert-chip">CFP®</span>
+          <span class="cert-chip">WMI</span>
+          <span class="cert-chip">WPPE</span>
+          <span class="cert-chip">Bali, Indonesia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="section-inner">
+    <div class="section-tag">The Challenge</div>
+    <h2 class="section-title">Many Companies Don't Realize Their<br>Financial Problems</h2>
+    <div class="problem-grid">
+      <div class="problem-text">
+        <div class="gold-divider"></div>
+        <p>Financial issues within organizations often go unnoticed — quietly eroding performance, engagement, and productivity from within. From inefficient financial behavior to employee financial stress, these challenges rarely surface until they've already caused significant damage.</p>
+        <p>Without a proper diagnostic, problems compound over time. Leadership teams address symptoms rather than root causes, and financial health remains a blind spot — even in otherwise well-run organizations.</p>
+        <p>That's where Harsha Dana Consulting steps in: providing the clarity, structure, and expertise your organization needs to see — and solve — what's really happening.</p>
+      </div>
+      <div class="problem-cards">
+        <div class="prob-card fade-up">
+          <div class="prob-icon">⚠️</div>
+          <div>
+            <h4>Invisible Financial Stress</h4>
+            <p>Employees facing personal financial pressures bring reduced focus and productivity to the workplace.</p>
+          </div>
+        </div>
+        <div class="prob-card fade-up">
+          <div class="prob-icon">📉</div>
+          <div>
+            <h4>Inefficient Financial Behavior</h4>
+            <p>Poor financial habits at the individual level aggregate into organizational-level inefficiency.</p>
+          </div>
+        </div>
+        <div class="prob-card fade-up">
+          <div class="prob-icon">🔍</div>
+          <div>
+            <h4>No Diagnostic Framework</h4>
+            <p>Most organizations lack the tools to identify and measure internal financial health risks.</p>
+          </div>
+        </div>
+        <div class="prob-card fade-up">
+          <div class="prob-icon">🏢</div>
+          <div>
+            <h4>Unsupported Workforce</h4>
+            <p>Employees receive little to no guidance on financial planning — especially around retirement and investment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="section-inner">
+    <div class="section-tag" style="color:var(--gold)">Our Methodology</div>
+    <h2 class="section-title light">Our Approach: Corporate Financial<br>Diagnostic (CFD)</h2>
+    <p class="section-lead light">A structured four-phase framework designed to surface, understand, and resolve financial challenges at the corporate level.</p>
+    <div class="approach-steps">
+      <div class="approach-step">
+        <div class="step-number">01</div>
+        <div class="step-icon">🔬</div>
+        <h3>Diagnose</h3>
+        <p>We conduct a thorough assessment to identify the root causes of financial challenges — not just the surface-level symptoms.</p>
+        <div class="step-accent"></div>
+      </div>
+      <div class="approach-step">
+        <div class="step-number">02</div>
+        <div class="step-icon">📊</div>
+        <h3>Analyze</h3>
+        <p>Deep analysis of financial behavior patterns, risk profiles, and organizational dynamics to understand the full scope.</p>
+        <div class="step-accent"></div>
+      </div>
+      <div class="approach-step">
+        <div class="step-number">03</div>
+        <div class="step-icon">⚡</div>
+        <h3>Solve</h3>
+        <p>We develop strategic and practical solutions tailored to your organization's specific context and objectives.</p>
+        <div class="step-accent"></div>
+      </div>
+      <div class="approach-step">
+        <div class="step-number">04</div>
+        <div class="step-icon">🤝</div>
+        <h3>Assist</h3>
+        <p>Ongoing support through implementation to ensure recommendations translate into lasting, measurable change.</p>
+        <div class="step-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-tag">What We Offer</div>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-lead">Comprehensive financial consulting solutions designed for corporate environments, delivered by certified professionals.</p>
+    <div class="services-grid">
+      <div class="service-card featured fade-up">
+        <div class="service-icon">🏦</div>
+        <h3>Corporate Financial Diagnostic (CFD)</h3>
+        <p>Our flagship service — a structured diagnostic process to identify financial issues within your organization and provide strategic insights for measurable improvement.</p>
+        <a href="#contact" class="service-link">Schedule CFD</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">📈</div>
+        <h3>Financial Planning &amp; Investment Training</h3>
+        <p>Equip your employees with practical financial knowledge, investment fundamentals, and better decision-making skills for long-term financial wellbeing.</p>
+        <a href="#contact" class="service-link">Learn More</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🌅</div>
+        <h3>Pre-Retirement Planning Program</h3>
+        <p>Help employees prepare financially for retirement with confidence — reducing anxiety and enabling a healthy, productive transition.</p>
+        <a href="#contact" class="service-link">Learn More</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🎤</div>
+        <h3>Corporate Workshops, Seminars &amp; Talkshows</h3>
+        <p>Interactive, engaging sessions tailored to your company's specific needs — delivered on-site or virtually for maximum impact and participation.</p>
+        <a href="#contact" class="service-link">Learn More</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">👤</div>
+        <h3>Personal Financial Consultation (1-on-1)</h3>
+        <p>Private, confidential sessions for executives or employees seeking deeper financial planning guidance and hands-on implementation support.</p>
+        <a href="#contact" class="service-link">Learn More</a>
+      </div>
+      <div class="service-card fade-up" style="border-style:dashed; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 40px 32px;">
+        <div style="font-size:32px; margin-bottom:16px;">💬</div>
+        <h3 style="color:var(--navy); margin-bottom:12px;">Not Sure Where to Start?</h3>
+        <p style="color:var(--gray); font-size:14px; margin-bottom:20px;">Let's have a conversation. We'll help identify the right solution for your organization's specific situation.</p>
+        <a href="#contact" class="btn-primary" style="font-size:13px; padding:11px 24px;">Book Free Discovery Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits">
+  <div class="section-inner">
+    <div class="benefits-layout">
+      <div>
+        <div class="section-tag">Organizational Impact</div>
+        <h2 class="section-title">The Measurable Impact for Your Organization</h2>
+        <p class="section-lead" style="margin-bottom:40px;">When employees are financially healthy, organizations perform better — across every metric that matters to leadership.</p>
+        <div class="benefits-list">
+          <div class="benefit-item fade-up">
+            <div class="benefit-check">✓</div>
+            <div>
+              <h4>Improve Employee Focus &amp; Productivity</h4>
+              <p>Financially secure employees bring their full attention and energy to their work — reducing absenteeism and presenteeism.</p>
+            </div>
+          </div>
+          <div class="benefit-item fade-up">
+            <div class="benefit-check">✓</div>
+            <div>
+              <h4>Reduce Financial-Related Distractions</h4>
+              <p>Eliminate the hidden productivity drain of employees preoccupied with personal financial stress during work hours.</p>
+            </div>
+          </div>
+          <div class="benefit-item fade-up">
+            <div class="benefit-check">✓</div>
+            <div>
+              <h4>Increase Employee Engagement &amp; Retention</h4>
+              <p>Organizations that invest in employee financial wellbeing see measurably higher engagement scores and lower turnover.</p>
+            </div>
+          </div>
+          <div class="benefit-item fade-up">
+            <div class="benefit-check">✓</div>
+            <div>
+              <h4>Build a Healthier Financial Culture</h4>
+              <p>Foster an organizational culture where smart financial decisions are the norm — from the C-suite to the floor.</p>
+            </div>
+          </div>
+          <div class="benefit-item fade-up">
+            <div class="benefit-check">✓</div>
+            <div>
+              <h4>Support Better Financial Decision-Making</h4>
+              <p>Equip teams with the knowledge and frameworks to make sound financial decisions independently and confidently.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="benefits-visual">
+        <div class="bv-label">Impact Indicators</div>
+        <div class="bv-title">Where Our Clients See Results</div>
+        <div class="bv-metrics">
+          <div>
+            <div class="bv-metric-label">
+              <span>Employee Productivity</span><span>↑ High Impact</span>
+            </div>
+            <div class="bv-bar-track"><div class="bv-bar-fill" style="width:88%"></div></div>
+          </div>
+          <div>
+            <div class="bv-metric-label">
+              <span>Financial Wellness Score</span><span>↑ High Impact</span>
+            </div>
+            <div class="bv-bar-track"><div class="bv-bar-fill" style="width:92%; animation-delay:0.2s"></div></div>
+          </div>
+          <div>
+            <div class="bv-metric-label">
+              <span>Employee Engagement</span><span>↑ Strong Impact</span>
+            </div>
+            <div class="bv-bar-track"><div class="bv-bar-fill" style="width:78%; animation-delay:0.4s"></div></div>
+          </div>
+          <div>
+            <div class="bv-metric-label">
+              <span>Retention &amp; Loyalty</span><span>↑ Strong Impact</span>
+            </div>
+            <div class="bv-bar-track"><div class="bv-bar-fill" style="width:74%; animation-delay:0.6s"></div></div>
+          </div>
+          <div>
+            <div class="bv-metric-label">
+              <span>Retirement Readiness</span><span>↑ High Impact</span>
+            </div>
+            <div class="bv-bar-track"><div class="bv-bar-fill" style="width:85%; animation-delay:0.8s"></div></div>
+          </div>
+        </div>
+        <div style="margin-top:32px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08);">
+          <p style="font-size:12px; color:rgba(255,255,255,0.3); line-height:1.7;">Results based on structured Corporate Financial Diagnostic implementations. Outcomes vary by organization.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder">
+  <div class="section-inner">
+    <div class="section-tag">Leadership</div>
+    <h2 class="section-title">Led by an Experienced<br>Financial Professional</h2>
+    <div class="founder-grid">
+      <div>
+        <div class="founder-portrait">
+          <div class="founder-portrait-bg"></div>
+          <div class="founder-monogram">AA</div>
+          <div class="founder-name-tag">
+            <strong>A.A. Ngurah Mustakawarman</strong>
+            <span>Founder &amp; Lead Consultant</span>
+          </div>
+        </div>
+      </div>
+      <div class="founder-info">
+        <div class="gold-divider"></div>
+        <p class="founder-bio">
+          Harsha Dana Consulting is led by <strong>Anak Agung Ngurah Mustakawarman</strong>, a certified financial professional whose career spans over a decade at the intersection of banking, wealth management, and financial education. With deep expertise built across hundreds of client engagements, he brings a rare combination of institutional knowledge and practical, human-centered guidance to every corporate engagement.
+        </p>
+        <div class="founder-stats">
+          <div class="founder-stat">
+            <div class="founder-stat-num">12<span>+</span></div>
+            <div class="founder-stat-label">Years Banking<br>Experience</div>
+          </div>
+          <div class="founder-stat">
+            <div class="founder-stat-num">10<span>+</span></div>
+            <div class="founder-stat-label">Years Investment<br>Experience</div>
+          </div>
+          <div class="founder-stat">
+            <div class="founder-stat-num">200<span>+</span></div>
+            <div class="founder-stat-label">Financial Planning<br>Clients Served</div>
+          </div>
+        </div>
+        <p style="font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray); margin-bottom:16px;">Professional Certifications</p>
+        <div class="certs-row">
+          <div class="cert-badge">
+            <div class="cert-icon">🏆</div>
+            <div>
+              <strong>CFP®</strong>
+              <span>Certified Financial Planner</span>
+            </div>
+          </div>
+          <div class="cert-badge">
+            <div class="cert-icon">📚</div>
+            <div>
+              <strong>WMI</strong>
+              <span>Wealth Management Instructor</span>
+            </div>
+          </div>
+          <div class="cert-badge">
+            <div class="cert-icon">📜</div>
+            <div>
+              <strong>WPPE</strong>
+              <span>Licensed Securities Representative</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-bg-lines"></div>
+  <div class="section-inner" style="text-align:center">
+    <div class="section-tag" style="justify-content:center; color:var(--gold)">Take Action</div>
+    <h2 class="cta-title">Start Solving Your <em>Financial Challenges</em> Today</h2>
+    <p class="cta-sub">Whether you're a CFO, HR Director, or Business Owner — if financial health within your organization is a concern, we have the framework and expertise to help.</p>
+    <a href="#contact" class="btn-primary" style="font-size:15px; padding:16px 40px;">Schedule a Consultation &nbsp;→</a>
+    <p class="cta-note">Based in Denpasar, Bali — serving corporate clients across Indonesia</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-tag">Get in Touch</div>
+    <h2 class="section-title">Let's Start a Conversation</h2>
+    <p class="section-lead">Ready to address your organization's financial challenges? Reach out through any of the channels below.</p>
+    <div class="contact-grid" style="margin-top:60px;">
+      <div>
+        <div class="contact-info">
+          <a href="mailto:harshadanadigital@gmail.com" class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value">harshadanadigital@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://instagram.com/harsadanaconsulting" target="_blank" class="contact-item">
+            <div class="contact-icon">📸</div>
+            <div>
+              <div class="contact-item-label">Instagram</div>
+              <div class="contact-item-value">@harsadanaconsulting</div>
+            </div>
+          </a>
+          <div class="contact-item" style="cursor:default;">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-value">Denpasar, Bali, Indonesia</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:40px; padding:32px; background:linear-gradient(135deg, var(--navy), var(--navy-light)); border-radius:10px;">
+          <p style="font-size:13px; color:var(--gold); letter-spacing:0.08em; text-transform:uppercase; font-weight:600; margin-bottom:12px;">Discovery Session</p>
+          <p style="font-size:15px; color:rgba(255,255,255,0.8); line-height:1.75; font-weight:300;">
+            We offer a complimentary 30-minute discovery call for qualified corporate inquiries. Use the form to tell us about your organization and we'll be in touch within one business day.
+          </p>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" placeholder="Company name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@company.com">
+        </div>
+        <div class="form-group">
+          <label>Your Role</label>
+          <select>
+            <option value="">Select your role</option>
+            <option>CFO / Finance Director</option>
+            <option>HR Director / Manager</option>
+            <option>Business Owner / CEO</option>
+            <option>Finance Manager</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>How Can We Help?</label>
+          <textarea placeholder="Tell us about your organization's financial challenges or what you're looking to achieve..."></textarea>
+        </div>
+        <button class="form-submit" onclick="alert('Thank you for your message! We will be in touch within one business day.')">
+          Send Message →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">
+      © 2025 <strong>Harsha Dana Consulting</strong>. All rights reserved. · Denpasar, Bali, Indonesia
+    </div>
+    <div class="footer-links">
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#founder">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll-based fade-in
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(el => io.observe(el));
+
+  // Nav scroll style
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 60 ? '0 2px 32px rgba(0,0,0,0.35)' : 'none';
+  });
+
+  // Smooth bar animation trigger
+  const barEls = document.querySelectorAll('.bv-bar-fill');
+  const barIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.animation = e.target.style.animation || 'barGrow 1.5s ease-out forwards';
+        barIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  barEls.forEach(el => { el.style.transform = 'scaleX(0)'; barIO.observe(el); });
+</script>
+
+</body>
+</html>
