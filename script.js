@@ -53,4 +53,92 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ---------- Portfolio Carousel ---------- */
+  const track = document.getElementById('portfolioTrack');
+  const prevBtn = document.getElementById('portfolioPrev');
+  const nextBtn = document.getElementById('portfolioNext');
+
+  if (track && prevBtn && nextBtn) {
+    const cards = Array.from(track.querySelectorAll('.portfolio-card'));
+    const totalCards = cards.length;
+    let currentIndex = 0;
+    let autoplayTimer = null;
+    let isTransitioning = false;
+
+    function getCardWidth() {
+      return cards[0].offsetWidth + parseFloat(getComputedStyle(track).gap);
+    }
+
+    function updateCarousel(animate) {
+      const cardWidth = getCardWidth();
+      const carouselWidth = track.parentElement.offsetWidth;
+      const centerOffset = (carouselWidth / 2) - (cards[0].offsetWidth / 2);
+      const translateX = centerOffset - (currentIndex * cardWidth);
+
+      track.style.transition = animate ? 'transform .5s cubic-bezier(.25,.8,.25,1)' : 'none';
+      track.style.transform = 'translateX(' + translateX + 'px)';
+
+      cards.forEach((card, i) => {
+        card.classList.remove('active', 'adjacent');
+        if (i === currentIndex) {
+          card.classList.add('active');
+        } else if (i === currentIndex - 1 || i === currentIndex + 1) {
+          card.classList.add('adjacent');
+        }
+      });
+    }
+
+    function goTo(index, animate) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex = ((index % totalCards) + totalCards) % totalCards;
+      updateCarousel(animate !== false);
+      setTimeout(function() { isTransitioning = false; }, 550);
+    }
+
+    function goNext() { goTo(currentIndex + 1); }
+    function goPrev() { goTo(currentIndex - 1); }
+
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayTimer = setInterval(goNext, 3500);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) clearInterval(autoplayTimer);
+    }
+
+    nextBtn.addEventListener('click', function() { stopAutoplay(); goNext(); startAutoplay(); });
+    prevBtn.addEventListener('click', function() { stopAutoplay(); goPrev(); startAutoplay(); });
+
+    // Pause on hover
+    track.parentElement.addEventListener('mouseenter', stopAutoplay);
+    track.parentElement.addEventListener('mouseleave', startAutoplay);
+
+    // Touch swipe support
+    var touchStartX = 0;
+    track.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; stopAutoplay(); }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      var diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) goNext(); else goPrev();
+      }
+      startAutoplay();
+    }, { passive: true });
+
+    // Init
+    updateCarousel(false);
+    window.addEventListener('resize', function() { updateCarousel(false); });
+
+    // Start autoplay only when section is visible
+    var portfolioSection = document.getElementById('portfolio');
+    var portfolioObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) startAutoplay();
+        else stopAutoplay();
+      });
+    }, { threshold: 0.3 });
+    portfolioObserver.observe(portfolioSection);
+  }
+
 });
