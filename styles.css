@@ -154,13 +154,41 @@ section { padding: 6rem 0; }
 .portfolio-header { text-align: center; margin-bottom: 3.5rem; }
 .portfolio-header .section-desc { margin: 0 auto; }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.portfolio-scroll {
+  display: flex;
   gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+  margin: 0 -2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.portfolio-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.portfolio-scroll::-webkit-scrollbar-track {
+  background: var(--gray-200);
+  border-radius: 3px;
+}
+
+.portfolio-scroll::-webkit-scrollbar-thumb {
+  background: var(--blue-300);
+  border-radius: 3px;
+}
+
+.portfolio-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-500);
 }
 
 .portfolio-card {
+  min-width: 320px;
+  max-width: 340px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
   background: var(--white);
   border: 1px solid var(--gray-200);
   border-radius: 16px;
@@ -524,7 +552,6 @@ section { padding: 6rem 0; }
   .founder-certs { justify-content: center; }
   .problem-grid { grid-template-columns: 1fr; }
   .articles-grid { grid-template-columns: 1fr 1fr; }
-  .portfolio-grid { grid-template-columns: 1fr 1fr; }
   .contact-grid-4 { grid-template-columns: 1fr 1fr; }
   .article-hero h1 { font-size: 2rem; }
 }
@@ -542,7 +569,6 @@ section { padding: 6rem 0; }
   .problem-stats { grid-template-columns: 1fr 1fr; }
   .cta-section h2 { font-size: 1.8rem; }
   .articles-grid { grid-template-columns: 1fr; }
-  .portfolio-grid { grid-template-columns: 1fr; }
   .contact-grid-4 { grid-template-columns: 1fr 1fr; }
   .article-hero h1 { font-size: 1.7rem; }
   .article-body h2 { font-size: 1.35rem; }
@@ -552,6 +578,7 @@ section { padding: 6rem 0; }
   .values-grid { grid-template-columns: 1fr; }
   .problem-stats { grid-template-columns: 1fr; }
   .contact-grid-4 { grid-template-columns: 1fr; }
+  .portfolio-card { min-width: 260px; max-width: 280px; }
   .hero h1 { font-size: 1.8rem; }
   .hero-stat { display: none; }
 }
